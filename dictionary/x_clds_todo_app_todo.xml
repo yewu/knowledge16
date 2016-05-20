@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element attributes="hasLabels=true" calculation="answer = &quot;&quot;;" label="ToDo" max_length="40" name="x_clds_todo_app_todo" type="collection">
+        <element calculation="answer = &quot;&quot;;" label="Complete" max_length="40" name="complete" type="boolean"/>
+        <element calculation="answer = &quot;&quot;;" default="javascript: new GlideDateTime().getDisplayValue()" label="Date" max_length="40" name="date" type="glide_date"/>
+        <element calculation="answer = &quot;&quot;;" display="true" label="Name" max_length="255" name="name" type="string"/>
+        <element label="Task" max_length="32" name="task" reference="task" type="reference"/>
+        <element calculation="answer = &quot;&quot;;" default="javascript:gs.getUserID();" dynamic_default_value="90d1921e5f510100a9ad2572f2b477fe" label="User" max_length="32" name="user" reference="sys_user" type="reference" use_dynamic_default="true"/>
+        <index name="index">
+            <element name="task"/>
+        </index>
+        <index name="index2">
+            <element name="user"/>
+        </index>
+    </element>
+</database>

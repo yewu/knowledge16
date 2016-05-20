@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[var app = angular.module('todo', ['ngColorThis']);
+
+app.controller('ToDoController', [ '$scope', '$http', function($scope, $http) {
+
+    $scope.url = '/api/now/table/x_clds_todo_app_todo';
+    $http.defaults.headers.common.Accept = "application/json";
+	$http.defaults.headers.common['X-UserToken'] = window.g_ck;
+	
+}]);
+
+
+/* This code will be used in lab 5
+app.directive('focusMe', function($timeout, $parse) {
+  return {
+    link: function(scope, element, attrs) {
+      var model = $parse(attrs.focusMe);
+      scope.$watch(model, function(value) {
+        //console.log('value=',value);
+        if(value === true) { 
+          $timeout(function() {
+            element[0].focus(); 
+          });
+        }
+      });
+      element.bind('blur', function() {
+        //console.log('blur')
+        scope.$apply(model.assign(scope, false));
+      })
+    }
+  };
+});*/]]></client_script>
+        <description/>
+        <direct>true</direct>
+        <endpoint>x_clds_todo_app_home_lab.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
+	<g:evaluate object="true">
+		var session = gs.getSession();
+		var g_ck = session.getSessionToken();
+	</g:evaluate>
+	<script>
+		window.g_ck = "$[g_ck]";
+	</script>
+	<style>
+		/* Need to override the default ServiceNow style that sets buttons to a fixed height */
+		.input-group-btn button.btn, .input-group-btn input.btn{height:auto !important;}
+		.my-group select.form-control{width:30% !important;}
+		.my-group input.form-control{width:70% !important;}
+	</style>
+	<p></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">   
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4>ToDo List</h4>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <h4>Add Angular Code</h4>
+                                    </div>
+                                    <div class="col-md-2 col-xs-4">
+                                        <h4>April 23, 2015</h4>
+                                    </div>
+                                    
+									<div class="col-md-2 col-xs-4">
+										<!-- Insert task names here -->
+                                    </div>
+                                    <div class="col-md-2 col-xs-4">
+										<!-- Insert buttons here -->
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<!-- Call jquery from google -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<!-- Call bootstrap.js from maxcdn -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script>
+		//set jquery to noconflict mode due to prototype
+        var $j = jQuery.noConflict();
+		//add the following meta tag to the header so the page shows nicely on mobile devices
+        $j('head').append('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />');
+    </script>
+	<g:include_script src="x_clds_todo_app.ngColorThis.jsdbx" />
+</j:jelly>]]></html>
+        <name>home_lab</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>brad.tilton@cs</sys_created_by>
+        <sys_created_on>2015-03-31 14:34:29</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>56685d8f4f0b310052f3e321a310c7ca</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>home_lab</sys_name>
+        <sys_package display_value="Accenture - ToDo" source="x_clds_todo_app">6637cea74fb2b10052f3e321a310c717</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Accenture - ToDo">6637cea74fb2b10052f3e321a310c717</sys_scope>
+        <sys_update_name>sys_ui_page_56685d8f4f0b310052f3e321a310c7ca</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-05-06 14:48:01</sys_updated_on>
+    </sys_ui_page>
+</record_update>
